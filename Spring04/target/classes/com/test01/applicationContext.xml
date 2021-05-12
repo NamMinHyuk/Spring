@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="start" class="java.util.Date">
+		<property name="year" value="121" />
+		<property name="month" value="0" />
+		<property name="date" value="12" />
+	</bean>
+	
+	<bean id="myClass" class="com.test01.MyClass" />
+
+	<bean id="beanTest" class="com.test01.BeanTest">
+		<!-- 1. BeanTest(Date date) 호출 -->
+		<constructor-arg name="date" ref="start" />
+		<!-- 2.setMyClass(MyClass myClass) 호출 -->
+		<property name="myClass" ref="myClass" />
+		<!-- 3. setDate(Date date) 호출 -->
+		<property name="date" ref="start"></property>
+		<!-- 4. setNumber(int num) 호출 -->
+		<property name="number" >
+			<value type="short">100</value>
+		</property>
+		<!-- 5. setArray(String[] arr) 호출-->
+		<property name="array">
+			<array value-type="java.lang.String"><value>강호동</value><value>이순신</value><value>홍길동</value></array>
+		</property>
+	</bean>
+	
+</beans>
