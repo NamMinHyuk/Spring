@@ -8,11 +8,16 @@
 	<context:annotation-config />
 
 	<bean id="lee" class="com.test02.Student">
-		<property name="name" value="홍길동" />
+		<property name="name" value="이순신" />
 		<property name="addr" value="서울시 강남구" />
 		<property name="age" value="100" />
 	</bean>
 
+	<bean id="hong" class="com.test02.Student">
+		<property name="name" value="홍길동" />
+		<property name="addr" value="서울시 도봉구" />
+		<property name="age" value="200" />
+	</bean>
 	<bean id="mySchool" class="com.test02.School">
 		<property name="grade" value="1" />
 	</bean>
