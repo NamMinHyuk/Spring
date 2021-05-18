@@ -1,0 +1,6 @@
+SpringMVC03
+01. pom.xml
+	ojdbc6, mybatis, mybatis-spring, commons-dbcp, spring-orm
+02. web.xml
+03. /WEB-INF/spring/sqls/test.sql
+04. dto, dao, biz, controller
