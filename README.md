@@ -207,3 +207,25 @@ proxy 객체가 interface가지고 가져옴 (interface 안쓰면 CGLib씀)
       
 spring이 내부적으로 commandObj가 받아서 dto에 넣어줌      
 sqlSessionTemplate은 commit , close도 알아서 해줌     
+       
+        
+## Spring-Study 7일차        
+        
+        
+***   
+      
+MVC패턴 Spring 순서     
+01. pom.xml에 dependency 추가      
+01-1. root-context -> applicationContext.xml로 바꾸고 appServlet에 넣는다.     
+02. web.xml 설정 , context root 위치 바꾼다.     
+03. /WEB-INF/spring/sqls/test.sql     
+04. dto, dao, biz, controller     
+05. src/main/resources/mybatis/myboard-mapper.xml  -  (namespace 위치 주의!! mapper에 써야함)     
+06. src/main/resources/mybatis/db.properties     
+07. /WEB-INF/spring/sqls/config.xml - typeAlias , mapper에서 resources : src/main/resources로 연결된다.     
+08. applicationContext.xml - classpath : src/main/resources로 연결해준다. 1)db.properties 2)dataSource 3)mybatis 4)mybatis template     
+      
+Filter - client req가 server로 갈때  Filter를 거치고 server에서 resp가 client로 갈때 Filter를 거친다.      
+chain.doFilter(request,response); 가 없으면 웹사이트가 백지가 response 된다.      
+      
+Filter 순서는 javax.servlet.Filter interface를 상속받는 class를 만들고 -> web.xml 에서 Filter를 설정해준다.      
