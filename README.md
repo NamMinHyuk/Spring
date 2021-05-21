@@ -229,3 +229,25 @@ Filter - client req가 server로 갈때  Filter를 거치고 server에서 resp�
 chain.doFilter(request,response); 가 없으면 웹사이트가 백지가 response 된다.      
       
 Filter 순서는 javax.servlet.Filter interface를 상속받는 class를 만들고 -> web.xml 에서 Filter를 설정해준다.      
+       
+        
+## Spring-Study 8일차        
+        
+        
+***   
+          
+    
+AOP 순서    
+1. pom.xml : aspectjweaver, aspectjrt(이미되어있음) version ${}로 해야함    
+2. LogAop class    
+3. WEB-INF/spring/appServlet/aop-context.xml    
+4. web.xml    
+5. src/main/resources/log4j.xml - 에러나는거 상관없음 없앨려면 SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"로 바꾼다.
+    
+log4j log level    
+- Level.FATAL : 치명적인 에러    
+- Level.ERROR : 에러    
+- Level.WARN  : 경고    
+- Level.INFO  : 정보    
+- Level.DEBUG : 디버깅 정보    
+- Level.TRACE : DEBUG + @ (상세한 정보)    
