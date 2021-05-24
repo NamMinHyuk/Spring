@@ -251,3 +251,15 @@ log4j log level
 - Level.INFO  : 정보    
 - Level.DEBUG : 디버깅 정보    
 - Level.TRACE : DEBUG + @ (상세한 정보)    
+       
+        
+## Spring-Study 9일차        
+        
+        
+***   
+          
+    
+@RequestBody   : request 객체의 body에 저장되어 넘어오는 데이터 -> java object에 binding    
+@ResponseBody : java object -> response 객체의 body에 binding     
+    
+Jackson : ResponseBody 를 json 으로 만들어줌 (servlet에서 gson 역할)    
