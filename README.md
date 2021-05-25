@@ -263,3 +263,18 @@ log4j log level
 @ResponseBody : java object -> response 객체의 body에 binding     
     
 Jackson : ResponseBody 를 json 으로 만들어줌 (servlet에서 gson 역할)    
+       
+        
+## Spring-Study 10일차        
+        
+        
+***   
+          
+    
+Interceptor : controller로 넘어가는 Handler mapping 사이에서 가로챈다.    
+spring 3.2 이상부터는 servlet-context.xml에서 <exclude-mapping-path>를 통해 설정 가능하다.    
+    
+tx(transaction) - 내부적으로 aop가 돌고있는거다.    
+@Transactional     
+      
+프로젝트 할 때 처음부터 spring version 잘 맞춰야된다. (ommitted 충돌나면서 골치 아파짐)     
