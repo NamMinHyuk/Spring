@@ -26,4 +26,5 @@ public class UploadFile {
 	public void setMpfile(MultipartFile mpfile) {
 		this.mpfile = mpfile;
 	}
+	
 }

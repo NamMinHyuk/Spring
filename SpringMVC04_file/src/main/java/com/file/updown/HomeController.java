@@ -36,44 +36,43 @@ public class HomeController {
 	
 	@RequestMapping("/upload")
 	public String fileUpload(HttpServletRequest request, Model model, UploadFile uploadFile, BindingResult result ) {
+		fileValidator.validate(uploadFile, result); // 객체 검증 result로 에러 찾는다.
 		
-		fileValidator.validate(uploadFile, result);
-		
-		if(result.hasErrors()) {
+		if(result.hasErrors()) { // 에러가 있으면 upload.jsp view로 간다.
 			return "upload";
 		}
 		
-		MultipartFile file = uploadFile.getMpfile();
-		String name = file.getOriginalFilename();
+		MultipartFile file = uploadFile.getMpfile(); // 업로드한 파일
+		String name = file.getOriginalFilename(); // 파일의 원래 이름
 		
-		UploadFile fileObj = new UploadFile();
+		UploadFile fileObj = new UploadFile(); // dto에 넣기
 		fileObj.setName(name);
 		fileObj.setDesc(uploadFile.getDesc());
 		
-		InputStream inputStream = null;
+		InputStream inputStream = null; //(input,output) stream 초기화
 		OutputStream outputStream = null;
 		
 		try {
-			inputStream = file.getInputStream();
-			String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/resources/storage");
+			inputStream = file.getInputStream(); 
+			String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/resources/storage"); // 실제경로에 + resources/sotrage  
 			System.out.println("업로드 될 실제 경로 : " + path);
 			
-			File storage = new File(path);
+			File storage = new File(path); //storage가 없으면 폴더 생성
 			if(!storage.exists()) {
 				storage.mkdirs();
 			}
 			
-			File newFile = new File(path + "/" + name);
+			File newFile = new File(path + "/" + name); // 새파일이 없으면 생성 
 			if(!newFile.exists()) {
 				newFile.createNewFile();
 			}
 			
-			outputStream = new FileOutputStream(newFile);
+			outputStream = new FileOutputStream(newFile); 
 			int read = 0;
 			byte[] b = new byte[(int)file.getSize()];
 			
-			while((read = inputStream.read(b)) != -1) {
-				outputStream.write(b, 0, read);
+			while((read = inputStream.read(b)) != -1) {  // 마지막까지 들어오면 -1을 return 해줌
+				outputStream.write(b, 0, read); //실제 파일 업로드 부분
 			}
 			
 		} catch (IOException e) {
@@ -96,17 +95,17 @@ public class HomeController {
 	@RequestMapping("/download")
 	@ResponseBody
 	public byte[] fileDownload(HttpServletRequest request, HttpServletResponse response, String name) {
-		byte[] down = null;
+		byte[] down = null; // byte 배열 초기화
 		
 		try {
-			String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/resources/storage");
-			File file = new File(path + "/" + name);
+			String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/resources/storage"); // 실제경로에 + resources/sotrage
+			File file = new File(path + "/" + name); 
 			
-			down = FileCopyUtils.copyToByteArray(file);
+			down = FileCopyUtils.copyToByteArray(file); 
 			
-			String filename = new String(file.getName().getBytes(), "8859_1");
+			String filename = new String(file.getName().getBytes(), "8859_1"); // file encoding 설정
 			
-			response.setHeader("Content-Disposition", "attachment; filename=\""+filename+"\"");
+			response.setHeader("Content-Disposition", "attachment; filename=\""+filename+"\""); // file download 설정
 			response.setContentLength(down.length);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

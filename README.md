@@ -278,3 +278,54 @@ tx(transaction) - 내부적으로 aop가 돌고있는거다.
 @Transactional     
       
 프로젝트 할 때 처음부터 spring version 잘 맞춰야된다. (ommitted 충돌나면서 골치 아파짐)     
+
+       
+## Spring-Study 11일차        
+        
+        
+***   
+          
+FileUpload,Download    
+form tag의 enctype 속성    
+1. application/www-form-urlencoded : 문자들이 encoding 됨 (default)    
+2. multipart/form-data : file upload 기능 (post)    
+3. text/plain : encoding하지 않음    
+    
+spring form tag    
+form:errors -> Errors, BindingResult를 사용할 때, command 객체의 특정 filed에서 발생하는 에러메세지 출력 가능    
+    
+supports : validator 사용 가능 여부 확인    
+html a태그의 download 속성 한번 확인하기 (쉬움)    
+    
+mime-type (Multipurpose Internet Mail Extension)    
+request header에 지정되는, 데이터가 어떤 종류의 stream인지를 나타내 주는 프로토콜    
+    
+추가!    
+<mime-mapping>    
+	<extension>hwp</extension>    
+	<mime-type>application/unknown</mime-type>    
+</mime-mapping>    
+    
+
+       
+## Spring-Study 12일차        
+        
+        
+***   
+          
+spring update    
+1. web.xml : 2.5 -> 4.0    
+2. pom.xml     
+    java : 1.6 -> 11    
+    spring : 3.1.1 -> 5.3.7    
+    servlet-api -> javax.servlet-api : 2.5 -> 4.0.1    
+    jsp-api -> javax.servlet.jsp-api : 2.1 -> 2.3.3    
+    maven-compiler-plugin source/target : 1.6 -> 11    
+3. properties project facets    
+    dynamic web module : 2.5 -> 4.0    
+    java : 1.6 -> 11    
+4. maven update    
+    
+jdbcTemplate
+@FunctionalInterface 인터페이스 메소드가 하나일때만  lambda식(java 1.8 이상)가능 [익명객체]    
+RowMapper    
