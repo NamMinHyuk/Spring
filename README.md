@@ -329,3 +329,35 @@ spring update
 jdbcTemplate
 @FunctionalInterface 인터페이스 메소드가 하나일때만  lambda식(java 1.8 이상)가능 [익명객체]    
 RowMapper    
+    
+       
+## Spring-Study 13일차        
+        
+        
+***   
+          
+xml file(설정파일) -> java file     
+_javaconfig     
+1. com.mvc.update.config/ApplicationConfig     
+2. com.mvc.update.config/ServletConfig (impl WebMvcConfigurer)     
+3. web.xml     
+4. com.mvc.update.config/WebConfig (impl WebApplicationInitializer)     
+5. pom.xml     
+     
+annotation ex)     
+@Configuration     
+@PropertySource("classpath:sqls/db.properties")     
+@Value("${oracle.driver}")     
+@Bean     
+@EnableWebMvc     
+@ComponentScan("com.mvc.update")     
+     
+Spring Boot     
+- 경량     
+- 내장 서버     
+- 의존성 자동 관리     
+- No XML     
+     
+독립형 application에 적합하다.     
+boilerplate code 최소화 (매우 추상화되어있음, 내부적으로 알기가 어려움)     
+application을 properties로 사용     
