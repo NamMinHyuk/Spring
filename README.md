@@ -337,7 +337,7 @@ RowMapper
 ***   
           
 xml file(설정파일) -> java file     
-_javaconfig     
+javaconfig     
 1. com.mvc.update.config/ApplicationConfig     
 2. com.mvc.update.config/ServletConfig (impl WebMvcConfigurer)     
 3. web.xml     
