@@ -361,3 +361,16 @@ Spring Boot
 독립형 application에 적합하다.     
 boilerplate code 최소화 (매우 추상화되어있음, 내부적으로 알기가 어려움)     
 application을 properties로 사용     
+    
+       
+## Spring-Study 14일차        
+        
+        
+***   
+          
+### thymeleaf        
+spring boot devtools - restart 안하고 새로고침 됨       
+JPA(Java Persistent API) - 영속성(db한테 가는걸 늦게가겠다)       
+lombok - 어노테이션으로 dto 다 만듦       
+dto @Entity @Table을 보고 spring.jpa.hibernate.ddl-auto=none 이 되어있으면 db에서 가져옴 create는 새로만듦       
+Flush : db에다가 commit 하는 용도       
