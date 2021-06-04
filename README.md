@@ -368,7 +368,7 @@ application을 properties로 사용
         
 ***   
           
-### thymeleaf        
+### thymeleaf : java code 를 html 에 render 하는 것
 spring boot devtools - restart 안하고 새로고침 됨       
 JPA(Java Persistent API) - 영속성(db한테 가는걸 늦게가겠다)       
 lombok - 어노테이션으로 dto 다 만듦       
